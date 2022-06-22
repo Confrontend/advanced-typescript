@@ -1,0 +1,21 @@
+// 1
+type CreatedElement<Elem extends string> =
+  Elem extends keyof HTMLElementTagNameMap
+    ? HTMLElementTagNameMap[Elem]
+    : HTMLElement;
+
+declare function createElement<Elem extends string>(
+  elemName: Elem
+): CreatedElement<Elem>;
+
+createElement("video").src;
+createElement("a").href;
+createElement("my-webcomponent").innerHTML
+
+// 2
+type IsString<T> = T extends string? T: never
+
+// Distributive conditions
+
+
+// Common Elements

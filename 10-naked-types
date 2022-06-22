@@ -1,0 +1,18 @@
+type Circle = {
+  kind: "circle";
+  radius: number;
+};
+
+type Triangle = {
+  kind: "triangle";
+  x: number;
+  y: number;
+};
+type Square = {
+  kind: "square";
+  x: number;
+};
+type Shape = Square | Triangle | Circle;
+type MyRemove<T, U> = T extends U ? never : T; // T is naked
+// type Debug = Circle | Triangle
+type ForTesting = MyRemove<Shape, Square>;
